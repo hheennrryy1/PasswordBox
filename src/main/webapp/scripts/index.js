@@ -24,13 +24,22 @@
 			});
 		
 		$("#login-button").click(function() {
-			var url = "user/testAJAX"
+			var userName = $("#userName").val();
+			var userPassword = $("#userPassword").val();
+			var url = "user/logIn";
 			var args = {
-					name:"Henry",
-					city:"Shenzhen"
+					userName:userName,
+					userPassword:userPassword
 				};
-			$.post(url, args, function(data,status) {
+			$.post(url, args, function(data, status) {
 				alert(data);
+			/*	if(data==="success") {
+					
+				}
+				
+				if(data==="fail") {
+					
+				}*/
 			});
 		});
 	});

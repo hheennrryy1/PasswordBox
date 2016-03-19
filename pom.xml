@@ -112,12 +112,5 @@
 		<artifactId>aspectjweaver</artifactId>
 		<version>1.8.6</version>
 	</dependency>
-
-	<!-- 注解配置事务需要的 -->
-	<dependency>
-		<groupId>aopalliance</groupId>
-		<artifactId>aopalliance</artifactId>
-		<version>1.0</version>
-	</dependency>	
   </dependencies>
 </project>

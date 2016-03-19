@@ -10,7 +10,7 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	
-	public String findUser(String userName, String userPassword) {
+	public Boolean findUser(String userName, String userPassword) {
 		return userDao.findUser(userName, userPassword);
 	}
 }

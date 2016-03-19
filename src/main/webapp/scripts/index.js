@@ -9,16 +9,14 @@
 	$(document).ready(function() {
 		$("#signup-a").click(
 			function() {
-				$("#signup-li").addClass("active");   
-				$("#signin-li").removeClass("active");
+				$("#signup-li").addClass("active").siblings().removeClass("active");
 				$("#signin").hide();
 				$("#signup").show();
 		});
 		
 		$("#signin-a").click(
 			function() {
-				$("#signin-li").addClass("active");   
-				$("#signup-li").removeClass("active");
+				$("#signin-li").addClass("active").siblings().removeClass("active");;   
 				$("#signup").hide();
 				$("#signin").show();
 			});
@@ -32,14 +30,13 @@
 					userPassword:userPassword
 				};
 			$.post(url, args, function(data, status) {
-				alert(data);
-			/*	if(data==="success") {
-					
+				if(data==="success") {
+					window.location.href = "views/home.html";
 				}
 				
 				if(data==="fail") {
-					
-				}*/
+					alert("错误");
+				}
 			});
 		});
 	});

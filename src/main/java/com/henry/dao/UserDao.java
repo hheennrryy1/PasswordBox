@@ -34,15 +34,15 @@ public class UserDao {
 	*/
 	
 	@SuppressWarnings("unchecked")
-	public String findUser(String userName, String userPassword) {
+	public boolean findUser(String userName, String userPassword) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from User u where u.userName = ? and u.userPassword = ?");
 		query.setString(0, userName);
 		query.setString(1, userPassword);
 		List<User> users = query.list();
 		if(users.isEmpty()) {
-			return "fail";
+			return false;
 		}
-		return "success";
+		return true;
 	}
 }

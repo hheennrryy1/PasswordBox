@@ -38,9 +38,7 @@ public class UserController {
 	
 	@RequestMapping(value="/signUp", method=RequestMethod.POST)
 	public String signUp(User user) {
-		int flag = 1;
-System.out.println(flag++);
+		userService.saveUser(user);
 		return "redirect:/index.html";
 	}
-	
 }

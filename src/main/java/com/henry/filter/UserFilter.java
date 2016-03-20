@@ -39,7 +39,6 @@ public class UserFilter implements Filter {
 	    HttpServletRequest request = (HttpServletRequest) requ;
 	    HttpServletResponse response = (HttpServletResponse) res;
 	    String url = request.getContextPath() + "/index.html";
-	    System.out.println(url);
 	    if(request.getSession().getAttribute("userName")==null) {
 	    	response.sendRedirect(url);
 	    	return;

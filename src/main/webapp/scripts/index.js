@@ -22,8 +22,8 @@
 			});
 		
 		$("#signin-button").click(function() {
-			var userName = $("#userName").val();
-			var userPassword = $("#userPassword").val();
+			var userName = $("#signin-userName").val();
+			var userPassword = $("#signin-userPassword").val();
 			var url = "user/signIn";
 			var args = {
 					userName:userName,
@@ -48,26 +48,17 @@
 		
 		$("#signup-form").validate({
 			rules: {
-				userPassword1: {
+				userPassword: {
 					required: true,
 					minlength: 6
 				},
-				userPassword2: {
+				userPassword1: {
 					required: true,
 					minlength: 6,
-					equalTo: "#userPassword1"
+					equalTo: "#userPassword"
 				}
 			},
 			messages: {
-				password: {
-					required: "Please provide a password",
-					minlength: "Your password must be at least 5 characters long"
-				},
-				confirm_password: {
-					required: "Please provide a password",
-					minlength: "Your password must be at least 5 characters long",
-					equalTo: "Please enter the same password as above"
-				}
 			}
 		});
 

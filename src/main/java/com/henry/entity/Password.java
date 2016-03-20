@@ -17,6 +17,12 @@ public class Password {
 	private int type;
 	private String remark;
 	
+	@Override
+	public String toString() {
+		return "Password [id=" + id + ", user=" + user + ", name=" + name + ", password=" + password + ", type=" + type
+				+ ", remark=" + remark + "]";
+	}
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

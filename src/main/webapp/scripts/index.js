@@ -31,7 +31,7 @@
 				};
 			$.post(url, args, function(data, status) {
 				if(data==="success") {
-					window.location.href = "views/home.html";
+					window.location.href = "user/home";
 				}
 				
 				if(data==="fail") {

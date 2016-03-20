@@ -17,6 +17,12 @@ public class User {
 	private String userPassword;
 	private Set<Password> passwords = new HashSet<>();
 	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", userPassword=" + userPassword + ", passwords="
+				+ passwords + "]";
+	}
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

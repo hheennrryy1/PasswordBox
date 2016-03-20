@@ -1,11 +1,10 @@
 package com.henry.dao;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.henry.entity.Password;
+
 @Repository
-public class PasswordDao {
-	@Autowired
-	private SessionFactory sessionfFactory;
+public class PasswordDao extends BaseDao<Password>{
+	
 }

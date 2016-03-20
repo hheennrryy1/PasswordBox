@@ -1,6 +1,7 @@
 package com.henry.dao;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -31,6 +32,15 @@ public class BaseDao<T> {
 	@SuppressWarnings("unchecked")
 	public T get(Class<T> clazz, Serializable id) {
 		return (T)this.getCurrentSession().get(clazz, id);
+	}
+	
+	public T get(String hql, Object[] param) {
+		List<T> list = this.find(hql, param);
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
 	}
 	
 	@SuppressWarnings("unchecked")

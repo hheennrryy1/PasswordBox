@@ -1,14 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>PasswordBox</title>
-	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
-	<script src="../scripts/jquery.min.js"></script>
-	<script src="../scripts/bootstrap.min.js"></script>
-	<script src="../scripts/home.js"></script>
+	<link href="/PasswordBox/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="/PasswordBox/css/font-awesome.min.css"/>
+	<script src="/PasswordBox/scripts/jquery.min.js"></script>
+	<script src="/PasswordBox/scripts/bootstrap.min.js"></script>
+	<script src="/PasswordBox/scripts/home.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -18,7 +19,7 @@
 	    <div>
 	        <ul class="nav navbar-nav">
 	            <li><a href="save.html"><i class="fa fa-key fa-fw"></i>添加密码</a></li>
-	            <li><a href="check.html"><i class="fa fa-list-ol fa-fw"></i>所有项目</a></li>
+	            <li class="active"><a href="check.html"><i class="fa fa-list-ol fa-fw"></i>所有项目</a></li>
 	            <li class="dropdown">
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                	<i class="fa fa-user fa-fw"></i>
@@ -41,7 +42,6 @@
 				<button type="submit" class="btn btn-default">提交</button>
       		</form>
 		</div>
-	</nav>
-	
+	</nav>	
 </body>
 </html>

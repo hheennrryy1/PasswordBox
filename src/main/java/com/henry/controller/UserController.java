@@ -16,7 +16,7 @@ import com.henry.entity.User;
 import com.henry.service.UserService;
 @Controller
 @RequestMapping("/user")
-@SessionAttributes("userName")
+@SessionAttributes("user")
 public class UserController {
 	
 	@Autowired
@@ -28,12 +28,17 @@ public class UserController {
 						@RequestParam("userPassword")String userPassword, 
 						Map<String, Object> map, HttpSession session) {
 		String status = "fail";
-		boolean flag = userService.findUser(userName, userPassword);
-		if(flag) {
-			map.put("userName", userName);
+		User user = userService.findUser(userName, userPassword);
+		if(user!=null) {
+			map.put("user", user);
 			status = "success";
 		}
 		return status;
+	}
+	
+	@RequestMapping("/home")
+	public String goHome() {
+		return "home";
 	}
 	
 	@RequestMapping(value="/signUp", method=RequestMethod.POST)

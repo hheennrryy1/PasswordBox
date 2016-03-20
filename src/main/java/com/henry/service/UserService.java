@@ -17,12 +17,11 @@ public class UserService {
 		userDao.save(user);
 	}
 	
-	public Boolean findUser(String userName, String userPassword) {
-		Boolean flag = true;
+	public User findUser(String userName, String userPassword) {
 		List<User> users = userDao.findUser(userName, userPassword);
 		if(users.isEmpty()) {
-			flag = false;
+			return null;
 		}
-		return flag;
+		return users.get(0);
 	}
 }

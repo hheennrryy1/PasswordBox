@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.henry.entity.User;
 import com.henry.service.UserService;
 @Controller
 @RequestMapping("/user")
@@ -21,9 +22,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/logIn", method=RequestMethod.POST)
+	@RequestMapping(value="/signIn", method=RequestMethod.POST)
 	@ResponseBody
-	public String logIn(@RequestParam("userName")String userName,
+	public String signIn(@RequestParam("userName")String userName,
 						@RequestParam("userPassword")String userPassword, 
 						Map<String, Object> map, HttpSession session) {
 		String status = "fail";
@@ -34,4 +35,12 @@ public class UserController {
 		}
 		return status;
 	}
+	
+	@RequestMapping(value="/signUp", method=RequestMethod.POST)
+	public String signUp(User user) {
+		int flag = 1;
+System.out.println(flag++);
+		return "redirect:/index.html";
+	}
+	
 }

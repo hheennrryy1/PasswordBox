@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.henry.entity.User;
 
@@ -40,9 +41,9 @@ public class UserFilter implements Filter {
 	public void doFilter(ServletRequest requ, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) requ;
 		HttpServletResponse response = (HttpServletResponse) res;
-		User user = (User) request.getSession().getAttribute("user");
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
 		String ajaxHeader = request.getHeader("x-requested-with");//AJAX«Î«ÛÕ∑
-		
 		if(user==null && ajaxHeader==null) {
 				response.sendRedirect(request.getContextPath() + "/index.html");
 				return;

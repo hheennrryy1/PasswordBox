@@ -16,7 +16,7 @@
 		
 		$("#signin-a").click(
 			function() {
-				$("#signin-li").addClass("active").siblings().removeClass("active");;   
+				$("#signin-li").addClass("active").siblings().removeClass("active");  
 				$("#signup").hide();
 				$("#signin").show();
 			});

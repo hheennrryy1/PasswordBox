@@ -14,6 +14,7 @@ public class Password {
 	private User user;
 	private String name;
 	private String password;
+	private String url;
 	private int type;
 	private String remark;
 	
@@ -55,6 +56,13 @@ public class Password {
 		this.password = password;
 	}
 	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public int getType() {
 		return type;
 	}

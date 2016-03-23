@@ -1,7 +1,6 @@
 package com.henry.dao;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Query;

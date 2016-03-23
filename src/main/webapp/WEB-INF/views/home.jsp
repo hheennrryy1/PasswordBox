@@ -14,11 +14,15 @@
 	<script src="<%=path%>/scripts/home.js"></script>
 	<style>
 		body {
-			  margin: 70px 50px;
+			  margin: 70px 30px;
 		}
 	</style>
 </head>
 <body>
   	<jsp:include page="nav.jsp"></jsp:include>
+		<div class="jumbotron text-center" id="ad">
+			<h1>欢迎使用PasswordBox</h1>
+			<p>PasswordBox是一个独特的密码管理器,可以为您带来安全和方便。</p>
+		</div>
 </body>
 </html>

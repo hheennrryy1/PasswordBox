@@ -31,7 +31,5 @@
 	     	</form>
 		</div> 
 		
-		<div>
-			<p class="navbar-text navbar-left">这里暂时没东西 呵呵</p>
-	   </div>
+		<p class="navbar-text navbar-left">Copyright &copy 2016,  <a href="https://github.com/hheennrryy1">Henry</a></p>
 	</nav>

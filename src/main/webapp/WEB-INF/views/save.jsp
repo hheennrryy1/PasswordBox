@@ -26,7 +26,7 @@
 		</div>
 	
 		<div class="panel-body">
-			<form class="form-horizontal" role="form" action="#" method="POST">
+			<form class="form-horizontal" role="form" action="<%=path%>/user/password" method="POST">
 			     <div class="form-group" id="passwordType-div">
 				     	<input type="radio" name="passwordType" value="1" checked="checked"/>密码
 				     	<input type="radio" name="passwordType" value="2"/>登录

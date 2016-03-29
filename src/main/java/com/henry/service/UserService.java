@@ -1,6 +1,5 @@
 package com.henry.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +16,7 @@ public class UserService {
 		userDao.save(user);
 	}
 	
-	public User findUser(String userName, String userPassword) {
-		List<User> users = userDao.findUser(userName, userPassword);
-		if(users.isEmpty()) {
-			return null;
-		}
-		return users.get(0);
+	public User getUser(String userName, String userPassword) {
+		return userDao.getUser(userName, userPassword);
 	}
 }

@@ -23,7 +23,7 @@ public class UserController {
 	public String signIn(@RequestParam("userName")String userName,
 						@RequestParam("userPassword")String userPassword, HttpSession session) {
 		String status = "fail";
-		User user = userService.findUser(userName, userPassword);
+		User user = userService.getUser(userName, userPassword);
 		if(user!=null) {
 			session.setAttribute("user", user);
 			status = "success";

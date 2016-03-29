@@ -1,5 +1,8 @@
 package com.henry.test;
 
+import java.util.List;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +19,17 @@ public class TestPasswordService {
 	@Autowired
 	private PasswordService passwordService;
 	
+	@Ignore
 	@Test
 	public void testSave() {
 		Password password = new Password();
 		password.setName("name");
-		passwordService.save(password);
+		passwordService.savePassword(password);
+	}
+	
+	@Test
+	public void testFind() {
+		List<Password> passwords = passwordService.findPasswords(3);
+		System.out.println(passwords);
 	}
 }

@@ -30,6 +30,6 @@ public class TestPasswordService {
 	@Test
 	public void testFind() {
 		List<Password> passwords = passwordService.findPasswords(3);
-		System.out.println(passwords);
+		System.out.println(passwords.get(1).getName());
 	}
 }

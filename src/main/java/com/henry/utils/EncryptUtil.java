@@ -1,16 +1,17 @@
 package com.henry.utils;
 
-import org.junit.Test;
+import org.apache.commons.codec.binary.Base64;
 
 public class EncryptUtil {
-	@SuppressWarnings("restriction")
-	public static String getBASE64(String str) {
-		return (new sun.misc.BASE64Encoder().encode(str.getBytes()));
+	
+	//º”√‹
+	public static String encode(final byte[] bytes) {  
+		return new String(Base64.encodeBase64(bytes));  
 	}
 	
-	@Test
-	public void test() {
-		String str = getBASE64("SfsdfewWQr123--q");
-		System.out.println(str);
+	//Ω‚√‹
+	public static String decode(final byte[] bytes) {
+		return new String(Base64.decodeBase64(bytes));  
 	}
+	
 }

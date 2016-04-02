@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.henry.dao.PasswordDao;
 import com.henry.entity.Password;
-import com.henry.entity.User;
 import com.henry.utils.EncryptUtil;
 
 @Service
@@ -27,7 +26,6 @@ public class PasswordService {
 			String decodedPassword = EncryptUtil.decode(password.getPassword().getBytes());
 			password.setPassword(decodedPassword);
 		}
-		
 		return passwords;
 	}
 }

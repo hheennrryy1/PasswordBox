@@ -1,4 +1,5 @@
 package com.henry.test;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,12 @@ import com.henry.service.UserService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:Spring.xml", "classpath:Spring-Hibernate.xml"})
 public class TestUserService {
-		
+		private static final Logger logger = Logger.getLogger(TestUserService.class);
 	 	@Autowired
 	 	private UserService userService;
 	 	
 	 	@Test
 	 	public void testSave() {
-	 		String userName = "user1";
-	 		String userPassword = "123";
+	 		logger.info("fdfd");
 	 	}
 }

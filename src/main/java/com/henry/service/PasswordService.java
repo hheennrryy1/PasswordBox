@@ -13,7 +13,6 @@ import com.henry.utils.EncryptUtil;
 public class PasswordService {
 	@Autowired
 	private PasswordDao passwordDao;
-	
 	public void savePassword(Password password) {
 		String encodedPassword = EncryptUtil.encode(password.getPassword().getBytes());
 		password.setPassword(encodedPassword);

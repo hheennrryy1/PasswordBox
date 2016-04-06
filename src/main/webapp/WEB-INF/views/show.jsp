@@ -20,21 +20,26 @@
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>
 	<table class="table table-bordered">
-	<caption>点击密码显示/隐藏明文</caption>
 		<tr class="success">
 			<th>密码</th>
 			<th>url</th>
 			<th>类型</th>
 			<th>备注</th>
+			<th>操作</th>
 		</tr>
 		<c:forEach items="${passwords}" var="password">
 			<tr class="info">
 				<td>
 					<input type="password" value="${password.password}" class="password-input" readonly="readonly"/>
+					<a href="#" class="btn btn-info showPassword-a" role="button">点击显示</a>
 				</td>
 				<td>${password.url}</td>
 				<td>${password.type}</td>
 				<td>${password.remark}</td>
+				<td>
+					<a href="#" class="btn btn-success" role="button">编辑</a>
+					<a href="#" class="btn btn-danger" role="button">删除</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

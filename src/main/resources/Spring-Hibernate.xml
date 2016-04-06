@@ -37,7 +37,7 @@
 					org.hibernate.dialect.MySQLDialect
 				</prop>
 				<prop key="hibernate.show_sql">
-					true
+					false
 				</prop>
 				<prop key="hbm2ddl.auto">
 					update 

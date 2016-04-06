@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	$(".password-input").click(function() {
-		var attr = $(this).attr("type");
+	$(".showPassword-a").click(function() {
+		var attr = $(this).prev().attr("type");
 		if(attr=="password") {
-			$(this).attr("type", "text");
+			$(this).prev().attr("type", "text");
 		}
 		
 		if(attr=="text") {
-			$(this).attr("type", "password");
+			$(this).prev().attr("type", "password");
 		}
 	});
 })

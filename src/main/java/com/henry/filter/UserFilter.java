@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.henry.entity.User;
 
 /**
@@ -20,7 +22,7 @@ import com.henry.entity.User;
  */
 @WebFilter("/user/*")
 public class UserFilter implements Filter {
-
+	private static final Logger logger = Logger.getLogger(UserFilter.class);
     /**
      * Default constructor. 
      */
@@ -45,6 +47,7 @@ public class UserFilter implements Filter {
 		User user = (User) session.getAttribute("user");
 		String ajaxHeader = request.getHeader("x-requested-with");//AJAX«Î«ÛÕ∑
 		if(user==null && ajaxHeader==null) {
+				logger.info("Filter works");
 				response.sendRedirect(request.getContextPath() + "/index.html");
 				return;
 		}

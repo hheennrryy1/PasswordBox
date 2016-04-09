@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 	$(".showPassword-a").click(function() {
 		var attr = $(this).prev().attr("type");
 		if(attr=="password") {
@@ -9,4 +10,14 @@ $(document).ready(function() {
 			$(this).prev().attr("type", "password");
 		}
 	});
+	
+	$(".delete").click(function() {
+		var flag = confirm("确定删除?");
+		if(flag==true) {
+			var href = $(this).attr("href");
+			$("form").attr("action", href).submit();			
+		}
+		return false;
+	});
+	
 })

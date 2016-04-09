@@ -19,8 +19,13 @@
 </head>
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>
-	<table class="table table-bordered">
-		<tr class="success">
+	
+	<form action="" method="POST">
+		<input type="hidden" name="_method" value="DELETE"/>
+	</form>
+	
+	<table class="table table-bordered table-hover">
+		<tr class="info">
 			<th>密码</th>
 			<th>url</th>
 			<th>类型</th>
@@ -28,7 +33,7 @@
 			<th>操作</th>
 		</tr>
 		<c:forEach items="${passwords}" var="password">
-			<tr class="info">
+			<tr>
 				<td>
 					<input type="password" value="${password.password}" class="password-input" readonly="readonly"/>
 					<a href="#" class="btn btn-info showPassword-a" role="button">点击显示</a>
@@ -38,7 +43,7 @@
 				<td>${password.remark}</td>
 				<td>
 					<a href="#" class="btn btn-success" role="button">编辑</a>
-					<a href="#" class="btn btn-danger" role="button">删除</a>
+					<a href="<%=path%>/user/password/${ password.id }" class="btn btn-danger delete" role="button">删除</a>
 				</td>
 			</tr>
 		</c:forEach>

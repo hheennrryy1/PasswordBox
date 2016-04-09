@@ -7,7 +7,7 @@
 	    <div>
 	        <ul class="nav navbar-nav">
 	            <li><a href="<%=path %>/user/password/input"><i class="fa fa-key fa-fw"></i>添加密码</a></li>
-	            <li><a href="<%=path %>/user/password"><i class="fa fa-list-ol fa-fw"></i>所有项目</a></li>
+	            <li><a href="<%=path %>/user/password/list"><i class="fa fa-list-ol fa-fw"></i>所有项目</a></li>
 	            <li class="dropdown">
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                	<i class="fa fa-user fa-fw"></i>
@@ -31,5 +31,5 @@
 	     	</form>
 		</div> 
 		
-		<p class="navbar-text navbar-left">Copyright &copy 2016,  <a href="https://github.com/hheennrryy1">Henry</a></p>
+		<p class="navbar-text navbar-left">Copyright &copy; 2016,  <a href="https://github.com/hheennrryy1">Henry</a></p>
 	</nav>

@@ -11,8 +11,10 @@ import com.henry.utils.EncryptUtil;
 
 @Service
 public class PasswordService {
+	
 	@Autowired
 	private PasswordDao passwordDao;
+	
 	public void savePassword(Password password) {
 		String encodedPassword = EncryptUtil.encode(password.getPassword().getBytes());
 		password.setPassword(encodedPassword);
@@ -26,5 +28,10 @@ public class PasswordService {
 			password.setPassword(decodedPassword);
 		}
 		return passwords;
+	}
+	
+	public void delete(int id) {
+		Password password = (Password) passwordDao.load(Password.class, id);
+		passwordDao.delete(password);
 	}
 }

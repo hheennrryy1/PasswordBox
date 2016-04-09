@@ -29,6 +29,11 @@ public class BaseDao<T> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public T load(Class<T> clazz, Serializable id) {
+		return (T)this.getCurrentSession().load(clazz, id);
+	}
+	
+	@SuppressWarnings("unchecked")
 	public T get(Class<T> clazz, Serializable id) {
 		return (T)this.getCurrentSession().get(clazz, id);
 	}

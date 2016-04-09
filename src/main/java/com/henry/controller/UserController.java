@@ -33,7 +33,6 @@ public class UserController {
 	
 	@RequestMapping("/home")
 	public String home() {
-		int i = 10/0;
 		return "home";
 	}
 	

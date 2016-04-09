@@ -1,9 +1,8 @@
 package com.henry.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.henry.entity.Page;
 import com.henry.entity.Password;
 import com.henry.entity.User;
 import com.henry.service.PasswordService;
@@ -18,6 +18,8 @@ import com.henry.service.PasswordService;
 @Controller
 @RequestMapping("/user/password")
 public class PasswordController {
+	
+	Logger logger = Logger.getLogger(PasswordController.class);
 	
 	@Autowired
 	private PasswordService passwordService;
@@ -35,12 +37,14 @@ public class PasswordController {
 		return "home";
 	}
 	
-	@RequestMapping("/list")
-	public ModelAndView list(ModelAndView mav, HttpSession session) {
+	@RequestMapping("/list/{currentPage}")
+	public ModelAndView list(ModelAndView mav, HttpSession session, 
+									@PathVariable("currentPage")int currentPage) {
+		logger.info(currentPage);
 		User user = (User) session.getAttribute("user");
-		List<Password> passwords = passwordService.findPasswords(user.getId());
+		Page<Password> page = passwordService.findPasswords(user.getId(), 3, currentPage);
 		mav.setViewName("show");
-		mav.addObject("passwords", passwords);
+		mav.addObject("page", page);
 		return mav;
 	}
 	

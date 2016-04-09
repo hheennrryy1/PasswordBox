@@ -16,6 +16,20 @@ public class BaseDao<T> {
 		return sessionFactory.getCurrentSession();
 	}
 	
+	public Long count(String hql) {
+		return (Long) this.getCurrentSession().createQuery(hql).uniqueResult();
+	}
+
+	public Long count(String hql, Object[] param) {
+		Query q = this.getCurrentSession().createQuery(hql);
+		if (param != null && param.length > 0) {
+			for (int i = 0; i < param.length; i++) {
+				q.setParameter(i, param[i]);
+			}
+		}
+		return (Long) q.uniqueResult();
+	}
+	
 	public Serializable save(T t) {
 		return this.getCurrentSession().save(t);
 	}
@@ -52,6 +66,19 @@ public class BaseDao<T> {
 		return this.getCurrentSession().createQuery(hql).list();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<T> find(String hql, Object[] params, int everyPage) {
+		Query query = this.getCurrentSession().createQuery(hql);
+		if(params!=null && params.length>0) {
+			for(int i=0; i<params.length; i++) {
+				query.setParameter(i, params[i]);
+			}
+		}
+		query.setMaxResults(everyPage);
+		return (List<T>)query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<T> find(String hql, Object[] params) {
 		Query query = this.getCurrentSession().createQuery(hql);
 		if(params!=null && params.length>0) {
@@ -59,6 +86,7 @@ public class BaseDao<T> {
 				query.setParameter(i, params[i]);
 			}
 		}
-		return query.list();
+		return (List<T>)query.list();
 	}
+	
 }

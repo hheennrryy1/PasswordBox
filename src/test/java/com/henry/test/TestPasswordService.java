@@ -1,7 +1,6 @@
 package com.henry.test;
 
-import java.util.List;
-
+import org.apache.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,7 @@ import com.henry.service.PasswordService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:Spring.xml", "classpath:Spring-Hibernate.xml"})
 public class TestPasswordService {
-	
+	Logger logger = Logger.getLogger(TestPasswordService.class);
 	@Autowired
 	private PasswordService passwordService;
 	
@@ -28,8 +27,6 @@ public class TestPasswordService {
 	}
 	
 	@Test
-	public void testFind() {
-		List<Password> passwords = passwordService.findPasswords(3);
-		System.out.println(passwords.get(1).getName());
+	public void testCount() {
 	}
 }

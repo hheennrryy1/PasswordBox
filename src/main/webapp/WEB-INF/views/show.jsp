@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+        pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String path = request.getContextPath();%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 	<script src="<%=path%>/scripts/show.js"></script>
 	<style>
 		body {
-			  margin: 70px 50px;
+			    margin: 70px 50px;
 		}
 	</style>
 </head>
@@ -32,7 +32,7 @@
 			<th>备注</th>
 			<th>操作</th>
 		</tr>
-		<c:forEach items="${passwords}" var="password">
+		<c:forEach items="${page.items}" var="password">
 			<tr>
 				<td>
 					<input type="password" value="${password.password}" class="password-input" readonly="readonly"/>
@@ -48,5 +48,16 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<div class="text-center">
+		<ul class="pagination">
+		    <li><a href="#">&laquo;</a></li>
+			<c:forEach var="pageNum" begin="1" end="${ page.totalPage }">
+			    <li><a href="<%=path%>/user/password/list/${pageNum}">${ pageNum }</a></li>
+			</c:forEach>
+		    <li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+	
 </body>
 </html>

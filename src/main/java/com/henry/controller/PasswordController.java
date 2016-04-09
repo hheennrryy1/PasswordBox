@@ -40,7 +40,6 @@ public class PasswordController {
 	@RequestMapping("/list/{currentPage}")
 	public ModelAndView list(ModelAndView mav, HttpSession session, 
 									@PathVariable("currentPage")int currentPage) {
-		logger.info(currentPage);
 		User user = (User) session.getAttribute("user");
 		Page<Password> page = passwordService.findPasswords(user.getId(), 3, currentPage);
 		mav.setViewName("show");

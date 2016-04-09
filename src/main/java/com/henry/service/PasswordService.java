@@ -25,13 +25,15 @@ public class PasswordService {
 	
 	@SuppressWarnings("unchecked")
 	public Page<Password> findPasswords(int userId, int everyPage, int currentPage) {
-		List<Password> passwords = passwordDao.findPasswords(userId, everyPage);
+		Long totalCount = passwordDao.count(userId);
+		Page<Password> page = (Page<Password>) PageUtil.createPage(everyPage, totalCount, currentPage);
+		
+		List<Password> passwords = passwordDao.findPasswords(userId, page.getBeginIndex(), page.getEveryPage());
+		
 		for(Password password : passwords) {
 			String decodedPassword = EncryptUtil.decode(password.getPassword().getBytes());
 			password.setPassword(decodedPassword);
 		}
-		Long totalCount = passwordDao.count(userId);
-		Page<Password> page = (Page<Password>) PageUtil.createPage(everyPage, totalCount, currentPage);
 		page.setItems(passwords);
 		return page;
 	}

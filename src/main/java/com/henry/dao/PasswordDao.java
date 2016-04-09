@@ -9,9 +9,9 @@ import com.henry.entity.Password;
 @Repository
 public class PasswordDao extends BaseDao<Password>{
 	
-	public List<Password> findPasswords(int userId, int everyPage) {
+	public List<Password> findPasswords(int userId, int beginIndex, int everyPage) {
 		Object[] params = {userId};
-		return this.find("from Password p where p.user.id = ?", params, everyPage);
+		return this.find("from Password p where p.user.id = ?", params, beginIndex, everyPage);
 	}
 	
 	public Long count(int userId) {

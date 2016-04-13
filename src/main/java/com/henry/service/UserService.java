@@ -19,8 +19,20 @@ public class UserService {
 		userDao.save(user);
 	}
 	
+	public User getUserByName(String userName) {
+		return userDao.getUserByName(userName);
+	}
+	
 	public User getUser(String userName, String userPassword) {
 		userPassword = EncryptUtil.encode(userPassword.getBytes());
 		return userDao.getUser(userName, userPassword);
+	}
+
+	public User getUserById(Integer id) {
+		return userDao.getUserById(id);
+	}
+	
+	public void update(User user) {
+		userDao.update(user);
 	}
 }

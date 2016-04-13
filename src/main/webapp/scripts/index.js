@@ -76,9 +76,10 @@
 						if(result=="success") { 
 							alert("注册成功!");
 							window.location.href = "index.html";
-						} else { 
-								alert("注册失败!")
-							} 
+						} 
+						if(result=="fail") { 
+							alert("用户名已被使用!")
+						} 
 					} 
 				}); 
 			}, 

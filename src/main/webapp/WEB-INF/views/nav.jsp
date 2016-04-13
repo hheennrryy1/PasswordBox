@@ -15,7 +15,7 @@
 	                </a>
 	                <ul class="dropdown-menu">
 	                    <li><a href="<%=path%>/user/signOut"><i class="fa fa-sign-out"></i>登出</a></li>
-	                    <li><a href="#"><i class="fa fa-edit"></i>修改信息</a></li>
+	                    <li><a href="<%=path%>/user/input?id=${sessionScope.user.id}"><i class="fa fa-edit"></i>修改信息</a></li>
 	                </ul>
 	            </li>
 	        </ul>

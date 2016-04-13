@@ -2,6 +2,7 @@ package com.henry.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import com.henry.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+	Logger logger = Logger.getLogger(UserController.class);
 	@Autowired
 	private UserService userService;
 	
@@ -43,8 +44,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/signUp", method=RequestMethod.POST)
+	@ResponseBody
 	public String signUp(User user) {
+		logger.info(user.getUserName() + "|" + user.getUserPassword());
 		userService.saveUser(user);
-		return "redirect:/index.html";
+		return "success";
 	}
 }

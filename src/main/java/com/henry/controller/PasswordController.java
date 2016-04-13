@@ -24,7 +24,7 @@ public class PasswordController {
 	@Autowired
 	private PasswordService passwordService;
 	
-	@RequestMapping("/input")
+	@RequestMapping(method=RequestMethod.GET)
 	public String input() {
 		return "save";
 	}

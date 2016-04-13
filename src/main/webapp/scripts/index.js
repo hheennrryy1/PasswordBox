@@ -40,14 +40,17 @@
 			});
 		});
 		
-		$.validator.setDefaults({
-			submitHandler: function() {
-				$("#signup-form").submit();
-			}
-		});
 		
-		$("#signup-form").validate({
+		$("#signup-form").validate({ 
+			onsubmit:true,// 是否在提交是验证 
+			onfocusout:true,// 是否在获取焦点时验证 
+			onkeyup :true,// 是否在敲击键盘时验证 
+
 			rules: {
+				userName: {
+					required: true,
+					minlength: 4
+				},
 				userPassword: {
 					required: true,
 					minlength: 6
@@ -58,8 +61,31 @@
 					equalTo: "#userPassword"
 				}
 			},
+			
 			messages: {
-			}
+			},
+			
+			submitHandler: function(form) {  //通过之后回调 
+				var param = $("#signup-form").serialize(); 
+				$.ajax({ 
+					url : "user/signUp", 
+					type : "post", 
+					dataType : "text", 
+					data: param, 
+					success : function(result) { 
+						if(result=="success") { 
+							alert("注册成功!");
+							window.location.href = "index.html";
+						} else { 
+								alert("注册失败!")
+							} 
+					} 
+				}); 
+			}, 
+			         
+			invalidHandler: function(form, validator) {  //不通过回调 
+				return false; 
+			} 
+			         
 		});
-
 	});

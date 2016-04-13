@@ -26,7 +26,4 @@ public class TestPasswordService {
 		passwordService.savePassword(password);
 	}
 	
-	@Test
-	public void testCount() {
-	}
 }

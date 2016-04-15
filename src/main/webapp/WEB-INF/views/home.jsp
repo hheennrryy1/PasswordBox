@@ -16,13 +16,11 @@
 		body {
 			  margin: 70px 30px;
 		}
-		
 		.introduces {
 			background-color: #eee;
 			margin-left: 20px;
 			margin-bottom: 30px;
 		}
-		
 	</style>
 </head>
 <body>
@@ -57,6 +55,12 @@
 			</div>				
 		</div>
 		
+		<div>
+			<img src="<%=path%>/images/sakamoto.jpg" style="magin: 0 auto;" alt="坂本"/>
+		</div>		
 	</div>
+	
+	
+	
 </body>
 </html>

@@ -61,7 +61,7 @@ public class UserController {
 		return status;
 	}
 	
-	@ModelAttribute("user")
+	@ModelAttribute
 	public void getUser(@RequestParam(required=false) Integer id, Map<String, Object> map) {
 		if(id!=null) {
 			map.put("user", userService.getUserById(id));
@@ -71,12 +71,15 @@ public class UserController {
 	
 	@RequestMapping("/input")
 	public String inputInfo() {
+		/**
+		 * –¥¥Ì¡À£¨º”»Î”Ú
+		 */
 		return "editInfo";
 	}
 	
 	@RequestMapping(value="/edit", method=RequestMethod.POST)
 	@ResponseBody
-	public String update(User user) {
+	public String update(User user, HttpSession session) {
 		
 		logger.info(user.getUserName() + "|" + user.getId() + "|" + user.getUserPassword());
 		
@@ -84,6 +87,7 @@ public class UserController {
 		
 		if( userService.getUserByName(user.getUserName()) == null) {
 			userService.update(user);
+			session.setAttribute("user", user);
 			status = "success";
 		}
 		

@@ -42,4 +42,15 @@ public class PasswordService {
 		Password password = (Password) passwordDao.load(Password.class, id);
 		passwordDao.delete(password);
 	}
+
+	public Password getPassword(int id) {
+		Password password = passwordDao.get(Password.class, id);
+		String pwd = EncryptUtil.decode(password.getPassword().getBytes());
+		password.setPassword(pwd);
+		return password;
+	}
+
+	public void update(Password password) {
+		passwordDao.update(password);
+	}
 }

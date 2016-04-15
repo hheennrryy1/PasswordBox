@@ -5,7 +5,6 @@ $(document).ready(function() {
 		if(attr=="password") {
 			$(this).prev().attr("type", "text");
 		}
-		
 		if(attr=="text") {
 			$(this).prev().attr("type", "password");
 		}

@@ -26,4 +26,9 @@ public class TestPasswordService {
 		passwordService.savePassword(password);
 	}
 	
+	@Test
+	public void testGet() {
+		Password p = passwordService.getPassword(13);
+		logger.info(p.getName());
+	}
 }

@@ -42,7 +42,7 @@
 				<td>${password.type}</td>
 				<td>${password.remark}</td>
 				<td>
-					<a href="#" class="btn btn-success" role="button">编辑</a>
+					<a href="<%=path%>/user/password/${ password.id }" class="btn btn-success" role="button">编辑</a>
 					<a href="<%=path%>/user/password/${ password.id }" class="btn btn-danger delete" role="button">删除</a>
 				</td>
 			</tr>
@@ -51,11 +51,11 @@
 	
 	<div class="text-center">
 		<ul class="pagination">
-		    <li><a href="#">&laquo;</a></li>
+		    <li><a href="<%=path%>/user/password/list/1">&laquo;</a></li>
 			<c:forEach var="pageNum" begin="1" end="${ page.totalPage }">
 			    <li><a href="<%=path%>/user/password/list/${pageNum}">${ pageNum }</a></li>
 			</c:forEach>
-		    <li><a href="#">&raquo;</a></li>
+		    <li><a href="<%=path%>/user/password/list/${page.totalPage}">&raquo;</a></li>
 		</ul>
 	</div>
 </body>

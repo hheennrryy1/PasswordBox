@@ -77,6 +77,6 @@ public class PasswordController {
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public String delete(@PathVariable("id")int id) {
 		passwordService.delete(id);
-		return "redirect:/user/password/list";
+		return "redirect:/user/password/list/1";
 	}
 }

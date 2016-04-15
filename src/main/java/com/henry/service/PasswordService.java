@@ -18,8 +18,8 @@ public class PasswordService {
 	private PasswordDao passwordDao;
 	
 	public void savePassword(Password password) {
-		String encodedPassword = EncryptUtil.encode(password.getPassword().getBytes());
-		password.setPassword(encodedPassword);
+		String pwd = EncryptUtil.encode(password.getPassword().getBytes());
+		password.setPassword(pwd);
 		passwordDao.save(password);
 	}
 	
@@ -51,6 +51,8 @@ public class PasswordService {
 	}
 
 	public void update(Password password) {
+		String pwd = EncryptUtil.encode(password.getPassword().getBytes());
+		password.setPassword(pwd);
 		passwordDao.update(password);
 	}
 }

@@ -35,21 +35,31 @@
 						<form:input path="name" cssClass="form-control"/>
 		 			</div>
 				</div>
+				
 				<div class="form-group">
 		 			<label for="password" class="col-md-2 control-label">密码</label>
 		 			<div class="col-md-8">
-		 				<input type="password" value="${password.password}" class="form-control" id="password-input"/>
+		 				<input type="password" name="password" value="${password.password}" class="form-control" id="password-input"/>
 		 			</div>
 		 			<div class="col-md-2">
 		 				<a href="#" class="btn btn-info showPassword-a" role="button">点击显示</a>
 		 			</div>
 				</div>
+				
+				<div class="form-group">
+		 			<label for="url" class="col-md-2 control-label">网站</label>
+		 			<div class="col-md-10">
+						<form:input path="url" cssClass="form-control"/>
+		 			</div>
+				</div>
+				
 				<div class="form-group">
 		 			<label for="remark" class="col-md-2 control-label">备注</label>
 		 			<div class="col-md-10">
 						<form:input path="remark" cssClass="form-control"/>
 		 			</div>
 				</div>
+				
 				<input type="submit" class="btn btn-primary" id="edit-button" value="提交"/>
 			</form:form>
 		</div>

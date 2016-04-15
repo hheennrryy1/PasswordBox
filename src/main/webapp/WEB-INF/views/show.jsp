@@ -26,20 +26,20 @@
 	
 	<table class="table table-bordered table-hover">
 		<tr class="info">
+			<th>名称</th>
 			<th>密码</th>
 			<th>url</th>
-			<th>类型</th>
 			<th>备注</th>
 			<th>操作</th>
 		</tr>
 		<c:forEach items="${page.items}" var="password">
 			<tr>
+				<td>${password.name}</td>
 				<td>
 					<input type="password" value="${password.password}" class="password-input" readonly="readonly"/>
 					<a href="#" class="btn btn-info showPassword-a" role="button">点击显示</a>
 				</td>
 				<td>${password.url}</td>
-				<td>${password.type}</td>
 				<td>${password.remark}</td>
 				<td>
 					<a href="<%=path%>/user/password/${ password.id }" class="btn btn-success" role="button">编辑</a>

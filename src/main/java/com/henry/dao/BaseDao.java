@@ -67,6 +67,17 @@ public class BaseDao<T> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<T> find(String hql, Object[] params) {
+		Query query = this.getCurrentSession().createQuery(hql);
+		if(params!=null && params.length>0) {
+			for(int i=0; i<params.length; i++) {
+				query.setParameter(i, params[i]);
+			}
+		}
+		return (List<T>)query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<T> find(String hql, Object[] params, int beginIndex, int everyPage) {
 		Query query = this.getCurrentSession().createQuery(hql);
 		if(params!=null && params.length>0) {
@@ -79,15 +90,8 @@ public class BaseDao<T> {
 		return (List<T>)query.list();
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<T> find(String hql, Object[] params) {
-		Query query = this.getCurrentSession().createQuery(hql);
-		if(params!=null && params.length>0) {
-			for(int i=0; i<params.length; i++) {
-				query.setParameter(i, params[i]);
-			}
-		}
-		return (List<T>)query.list();
-	}
 	
+	public void query() {
+		
+	}
 }

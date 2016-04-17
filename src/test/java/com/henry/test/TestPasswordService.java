@@ -1,5 +1,7 @@
 package com.henry.test;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -30,5 +32,13 @@ public class TestPasswordService {
 	public void testGet() {
 		Password p = passwordService.getPassword(13);
 		logger.info(p.getName());
+	}
+	
+	@Test
+	public void testFind() {
+		List<Password> passwords = passwordService.findPasswordsByKeyword("1", 13);
+		for(Password p : passwords) {
+			logger.info(p.getRemark());
+		}
 	}
 }

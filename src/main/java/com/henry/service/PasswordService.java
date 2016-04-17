@@ -31,11 +31,20 @@ public class PasswordService {
 		List<Password> passwords = passwordDao.findPasswords(userId, page.getBeginIndex(), page.getEveryPage());
 		
 		for(Password password : passwords) {
-			String decodedPassword = EncryptUtil.decode(password.getPassword().getBytes());
-			password.setPassword(decodedPassword);
+			String pwd = EncryptUtil.decode(password.getPassword().getBytes());
+			password.setPassword(pwd);
 		}
 		page.setItems(passwords);
 		return page;
+	}
+	
+	public List<Password> findPasswordsByKeyword(String keyword, int userID) {
+		List<Password> passwords = passwordDao.findPasswordsByKeyword(keyword, userID);
+		for(Password password : passwords) {
+			String pwd = EncryptUtil.decode(password.getPassword().getBytes());
+			password.setPassword(pwd);
+		}		
+		return passwords;
 	}
 	
 	public void delete(int id) {

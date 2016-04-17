@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="<%=path%>/css/font-awesome.min.css"/>
 	<script src="<%=path%>/scripts/jquery.min.js"></script>
 	<script src="<%=path%>/scripts/bootstrap.min.js"></script>
-	<script src="<%=path%>/scripts/home.js"></script>
 	<style>
 		body {
 			  margin: 70px 30px;
@@ -59,8 +58,6 @@
 			<img src="<%=path%>/images/sakamoto.jpg" style="magin: 0 auto;" alt="坂本"/>
 		</div>		
 	</div>
-	
-	
 	
 </body>
 </html>

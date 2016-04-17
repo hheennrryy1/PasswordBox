@@ -53,7 +53,7 @@ public class PasswordController {
 		User user = (User) session.getAttribute("user");
 		password.setUser(user);
 		passwordService.savePassword(password);
-		return "home";
+		return "redirect:/user/password/list/1";
 	}
 	
 	@RequestMapping("/list/{currentPage}")
@@ -66,17 +66,22 @@ public class PasswordController {
 		return mav;
 	}
 	
-	
 	@RequestMapping(method=RequestMethod.PUT)
 	public String update(Password password) {
 		passwordService.update(password);
 		return "redirect:/user/password/list/1";
 	}
 	
-	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public String delete(@PathVariable("id")int id) {
 		passwordService.delete(id);
 		return "redirect:/user/password/list/1";
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.POST)
+	public ModelAndView search(@PathVariable("id")int id, String keyword, ModelAndView mav) {
+		mav.setViewName("showSearchResult");
+		mav.addObject("passwords", passwordService.findPasswordsByKeyword(keyword, id));
+		return mav;
 	}
 }

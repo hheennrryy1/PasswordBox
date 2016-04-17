@@ -7,7 +7,7 @@
 	    <div>
 	        <ul class="nav navbar-nav">
 	            <li><a href="<%=path %>/user/password"><i class="fa fa-key fa-fw"></i>添加密码</a></li>
-	            <li><a href="<%=path %>/user/password/list/0"><i class="fa fa-list-ol fa-fw"></i>所有项目</a></li>
+	            <li><a href="<%=path %>/user/password/list/0"><i class="fa fa-list-ol fa-fw"></i>所有密码</a></li>
 	            <li class="dropdown">
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                	<i class="fa fa-user fa-fw"></i>
@@ -22,10 +22,10 @@
 	    </div>
 	    
 		<div>
-			<form class="navbar-form navbar-left" role="search">
+			<form class="navbar-form navbar-left" role="search" action="<%=path%>/user/password/${sessionScope.user.id}" method="POST">
 				<div class="input-group">
 					<div class="input-group-addon"><i class="fa fa-search-plus"></i></div>
-					<input type="text" class="form-control" placeholder="搜索名称,url" id="search-input"/>
+					<input type="text" class="form-control" name="keyword" placeholder="搜索名称、备注" id="search-input"/>
 				</div>
 				<input type="submit" class="btn btn-default" name="#" value="搜索"></input>
 	     	</form>

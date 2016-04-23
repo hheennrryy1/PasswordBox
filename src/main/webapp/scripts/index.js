@@ -35,7 +35,7 @@
 				}
 				
 				if(data==="fail") {
-					alert("错误");
+					alert("登录失败");
 				}
 			});
 		});
@@ -43,7 +43,7 @@
 		
 		$("#signup-form").validate({ 
 			onsubmit:true,// 是否在提交是验证 
-			onfocusout:true,// 是否在获取焦点时验证 
+			onfocusout:false,// 是否在获取焦点时验证 
 			onkeyup :true,// 是否在敲击键盘时验证 
 
 			rules: {
@@ -73,6 +73,10 @@
 					dataType : "text", 
 					data: param, 
 					success : function(result) { 
+						if(result==="error") {
+							alert("验证码输入错误!");
+						}
+						
 						if(result=="success") { 
 							alert("注册成功!");
 							window.location.href = "index.html";
@@ -89,4 +93,10 @@
 			} 
 			         
 		});
+		
+		$("#code-img").click(function() {
+			$(this).attr("src", "code" + "?i=" + Math.random());
+		});
+		
+		
 	});

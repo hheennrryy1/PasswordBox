@@ -49,9 +49,14 @@ public class UserController {
 	
 	@RequestMapping(value="/signUp", method=RequestMethod.POST)
 	@ResponseBody
-	public String signUp(User user) {
-		logger.info(user.getUserName() + "|" + user.getUserPassword());
+	public String signUp(User user, HttpSession session) {
+		
 		String status = "fail";
+		
+		String code = (String)session.getAttribute("code");
+		if(!user.getCode().equalsIgnoreCase(code)) {
+			return "error";
+		}
 		
 		if( userService.getUserByName(user.getUserName()) == null ) {
 			userService.saveUser(user);
@@ -71,9 +76,6 @@ public class UserController {
 	
 	@RequestMapping("/input")
 	public String inputInfo() {
-		/**
-		 * –¥¥Ì¡À£¨º”»Î”Ú
-		 */
 		return "editInfo";
 	}
 	

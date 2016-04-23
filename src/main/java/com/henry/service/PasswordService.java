@@ -34,6 +34,7 @@ public class PasswordService {
 			String pwd = EncryptUtil.decode(password.getPassword().getBytes());
 			password.setPassword(pwd);
 		}
+		
 		page.setItems(passwords);
 		return page;
 	}

@@ -90,8 +90,4 @@ public class BaseDao<T> {
 		return (List<T>)query.list();
 	}
 	
-	
-	public void query() {
-		
-	}
 }

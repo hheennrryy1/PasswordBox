@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="user")
@@ -16,6 +17,7 @@ public class User {
 	private int id;
 	private String userName;
 	private String userPassword;
+	private String code;
 	private Set<Password> passwords = new HashSet<>();
 	
 	@Override
@@ -38,6 +40,15 @@ public class User {
 	}
 	public void setUserName(String name) {
 		this.userName = name;
+	}
+	
+	@Transient
+	public String getCode() {
+		return code;
+	}
+	
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 	public String getUserPassword() {

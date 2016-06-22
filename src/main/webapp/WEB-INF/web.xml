@@ -17,15 +17,30 @@
 	<listener> 
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class> 
 	</listener> 
-	
+  
 	<!-- 配置Spring容器 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:Spring.xml,classpath:Spring-Hibernate.xml</param-value>
+		<param-value>classpath:Spring.xml,classpath:Spring-Hibernate.xml, classpath:Spring-Security.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+
+<!-- 	
+	<filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> 
+    -->
+	
+	
 	
 	<!-- 配置SpringMVC -->
 	<servlet>
@@ -41,7 +56,7 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<!--
 		  将form表单提交的POST请求转换为PUT或DELETE请求
 		 注意：只能转换POST,不能转换GET!
@@ -55,4 +70,5 @@
 		<!-- 过滤指定的servlet -->
 		<servlet-name>springDispatcherServlet</servlet-name>  
 	</filter-mapping>
+	
 </web-app>

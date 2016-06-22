@@ -10,6 +10,7 @@
 		<config>src/main/resources/Spring.xml</config>
 		<config>src/main/resources/SpringMVC.xml</config>
 		<config>src/main/resources/Spring-Hibernate.xml</config>
+		<config>src/main/resources/Spring-Security.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

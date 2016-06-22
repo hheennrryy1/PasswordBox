@@ -42,9 +42,7 @@
 		
 		
 		$("#signup-form").validate({ 
-			onsubmit:true,// 是否在提交是验证 
-			onfocusout:false,// 是否在获取焦点时验证 
-			onkeyup :true,// 是否在敲击键盘时验证 
+
 
 			rules: {
 				userName: {

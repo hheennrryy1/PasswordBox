@@ -54,9 +54,6 @@
 			</div>				
 		</div>
 		
-		<div>
-			<img src="<%=path%>/images/sakamoto.jpg" style="magin: 0 auto;" alt="坂本"/>
-		</div>		
 	</div>
 	
 </body>
